@@ -6,7 +6,7 @@ Spatial transcriptomics has revolutionized the ability to study gene expression 
 
 This tool is particularly inspired by:
 
-The need to detect and characterize specialized tissue structures in kidney, liver, and other organ systems where tubules play a crucial role.
+The need to detect and characterize specialized tissue structures in kidney, liver, germ and other organ systems where tubules play a crucial role.
 
 The advancements in spatially resolved transcriptomics technologies that provide unprecedented resolution but lack standardized tools for spatial pattern detection.
 
