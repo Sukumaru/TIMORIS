@@ -8,7 +8,7 @@ setup(
     description="A tool for detecting tubule-like structures in spatial transcriptomics data",
     long_description=open("README.md").read(),
     long_description_content_type="text/markdown",
-    url="https://github.com/your-username/spatial-tubule-detection",
+    url="https://github.com/shuzh/TIMORIS",
     packages=find_packages(),
     install_requires=[
         "numpy",
