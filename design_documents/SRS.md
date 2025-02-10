@@ -45,16 +45,4 @@ The tool will be tested on small datasets before scaling up.
 - **Formats**: `.h5ad`, CSV.
 - **Visual Outputs**: Heatmaps, spatial plots, annotated images.
 
----
-## 4. Validation
-
-- **Testing**: Small-scale dataset or simulated data.
-- **Metrics**:
-  - Presence of known tubule marker genes.
-  - Spatial clustering analysis.
-  - Comparison with manually annotated data.
-
----
-## 5. Links
-- **SRS Document URL**: [Fill in repository link]
-- **Datasets.md Document URL**: [Fill in dataset documentation link]
+--
