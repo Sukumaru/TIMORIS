@@ -40,3 +40,39 @@ The first basic output of TIMORIS will be the identification of tubule-like stru
   - JSON file with structured spatial statistics.
 
 ---
+## Additional Tasks
+### 1.2.5: Optimization of Detection Algorithms
+- **Performance Testing**
+  - Benchmark clustering algorithms on test datasets.
+  - Deliverable: Performance report summarizing results.
+  - Completion Criteria: Performance improvements documented and integrated.
+
+- **Parameter Tuning**
+  - Test different parameter settings for clustering.
+  - Optimize for highest precision and recall.
+  - Deliverable: Optimized parameter settings.
+  - Completion Criteria: Selected parameters improve accuracy on validation set.
+
+### 1.2.6: Integration with Visualization Tools
+- **Develop Visualization**
+  - Implement visualization in **Napari** or **Scanpy**.
+  - Deliverable: Interactive visualization module.
+  - Completion Criteria: Users can inspect detected tubules interactively.
+
+- **Export Visualization Outputs**
+  - Generate static plots for reports.
+  - Deliverable: Collection of annotated images.
+  - Completion Criteria: Output files successfully generated and documented.
+
+### 1.2.7: Validation with Real Experimental Data
+- **Select Experimental Dataset**
+  - Choose a publicly available dataset with known tubule structures.
+  - Deliverable: Dataset documentation and metadata.
+  - Completion Criteria: Dataset is selected and loaded into the pipeline.
+
+- **Compare with Expert Annotations**
+  - Collaborate with domain experts to manually annotate structures.
+  - Deliverable: Validation report comparing results.
+  - Completion Criteria: Agreement metrics (e.g., precision, recall) computed and analyzed.
+
+---
