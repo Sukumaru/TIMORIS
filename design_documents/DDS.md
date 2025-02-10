@@ -48,7 +48,7 @@
 - **Content**:
   - Heatmaps of detected tubules
   - Spatial overlay of tubule structures
-  - Interactive visualization (Napari, Scanpy)
+  - Visualization (Scanpy)
 - **Dependencies**: Uses detected tubule structures from Module 3.
 
 ### **Module 5: Validation and Reporting**
@@ -56,5 +56,5 @@
 - **Content**:
   - Benchmarking metrics (precision, recall, spatial clustering scores)
   - Performance evaluation
-  - Report generation in JSON/CSV
+  - Report generation in CSV
 - **Dependencies**: Uses outputs from Detection and Visualization
