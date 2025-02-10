@@ -1,8 +1,8 @@
 import numpy as np
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../src')))
+
 from src.detection.spatial_analysis import compute_nearest_neighbor_distances
 
-import numpy as np
-from src.detection.spatial_analysis import compute_nearest_neighbor_distances
 
 def test_compute_nearest_neighbor_distances():
     coords = np.array([[0, 0], [1, 1], [2, 2]])
