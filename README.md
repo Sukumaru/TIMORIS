@@ -18,11 +18,13 @@ This repository contains a tool developed as part of the BIOINF 576 course to de
 
 
 ## Getting Started
+
+
+
 ## Features
-- Spatial Pattern Detection: Leverages advanced spatial statistics and machine learning techniques to detect elongated tubule-like structures.
+
+- ### Spatial Pattern Detection: Leverages advanced spatial statistics and machine learning techniques to detect elongated tubule-like structures.
 
 - Single-Cell Resolution: Optimized for high-resolution spatial transcriptomics data, ensuring that fine-grained details of tubule-like structures are preserved and accurately detected.
-
-- Customizable Workflows: Modular design to allow integration of different datasets and preprocessing methods.
 
 - Visualization: Provides intuitive visual outputs to overlay detected structures on tissue images and expression maps.
