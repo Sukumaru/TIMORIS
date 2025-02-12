@@ -25,13 +25,13 @@ File Format: .h5ad (AnnData format used for spatial transcriptomics)
 
 Source: Data obtained from public repositories such as 10x Genomics Visium, SpatialDB, or custom experimental datasets.
 
-Structure:
+#### Structure:
 
-Gene expression matrix (rows = genes, columns = cells/spots)
+- Gene expression matrix (rows = genes, columns = cells/spots)
 
-Spatial coordinates of each cell/spot
+- Spatial coordinates of each cell/spot
 
-Metadata containing sample details
+- Metadata containing sample details
 
 ### Output
 
@@ -39,11 +39,11 @@ File Format: .h5ad with additional annotations
 
 Contains:
 
-Detected tubule-like structures with labeled clusters
+- Detected tubule-like structures with labeled clusters
 
-Spatial statistics including neighborhood density and curvature scores
+- Spatial statistics including neighborhood density and curvature scores
 
-Visualization overlays for detected tubule regions
+- Visualization overlays for detected tubule regions
 
 ## Features
 
