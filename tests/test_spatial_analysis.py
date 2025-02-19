@@ -4,7 +4,7 @@ import os
 # Ensure the 'src' directory is in the Python path
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../src')))
 
-from detection.spatial_analysis import compute_nearest_neighbor_distances
+from timoris import compute_nearest_neighbor_distances
 import numpy as np
 
 def test_compute_nearest_neighbor_distances():
