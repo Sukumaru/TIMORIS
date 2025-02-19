@@ -5,3 +5,4 @@ squidpy
 matplotlib
 pandas
 pytest
+networkx
