@@ -1,7 +1,7 @@
 import pytest
 import numpy as np
 import anndata
-from detection.spatial_graph import generate_spatial_graph
+from timoris import generate_spatial_graph
 
 @pytest.fixture
 def synthetic_adata():
