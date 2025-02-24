@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 from anndata import AnnData
 
-def preprocess_data(file_path, file_type='h5ad', min_genes=200, min_cells=3, 
+def preprocess_data(file_path, file_type='h5ad', min_genes=10, min_cells=1, 
                     target_sum=1e4, n_top_genes=2000):
     """
     Comprehensive preprocessing pipeline for spatial transcriptomics data.
@@ -28,26 +28,34 @@ def preprocess_data(file_path, file_type='h5ad', min_genes=200, min_cells=3,
     else:
         raise ValueError("Unsupported file type. Use 'h5ad' or 'csv'.")
 
-    # Ensure mitochondrial genes exist before filtering
+    # Ensure dataset is not empty before filtering
+    if adata.shape[0] == 0 or adata.shape[1] == 0:
+        raise ValueError("Loaded dataset is empty.")
+
+    # Check for mitochondrial genes before applying QC metrics
     if any(adata.var_names.str.startswith('MT-')):
         adata.var['mt'] = adata.var_names.str.startswith('MT-')
         sc.pp.calculate_qc_metrics(adata, qc_vars=['mt'], inplace=True)
 
-    # Filter cells and genes
+    # Filter cells and genes, but ensure some data remains
     sc.pp.filter_cells(adata, min_genes=min_genes)
     sc.pp.filter_genes(adata, min_cells=min_cells)
+
+    if adata.shape[0] == 0 or adata.shape[1] == 0:
+        raise ValueError("All cells or genes were filtered out. Adjust min_genes or min_cells.")
 
     # Normalize data
     sc.pp.normalize_total(adata, target_sum=target_sum)
     sc.pp.log1p(adata)
 
-    # Ensure we don't request more variable genes than exist
-    max_genes = min(n_top_genes, adata.shape[1])  # Ensure we do not exceed available genes
+    # Ensure we don’t request more variable genes than exist
+    max_genes = min(n_top_genes, adata.shape[1])
     if max_genes > 0:
         sc.pp.highly_variable_genes(adata, n_top_genes=max_genes)
 
     # Filter to keep only highly variable genes if available
-    if 'highly_variable' in adata.var.columns:
+    if 'highly_variable' in adata.var.columns and adata.var['highly_variable'].sum() > 0:
         adata = adata[:, adata.var['highly_variable']]
-
+    
     return adata
+
