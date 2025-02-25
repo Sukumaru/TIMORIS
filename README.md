@@ -4,6 +4,13 @@
 
 Spatial transcriptomics has revolutionized the ability to study gene expression in the spatial context of tissues, uncovering structural and functional relationships. However, detecting complex tissue architectures, such as tubule-like structures, remains a challenge. TIMORIS was developed to address this gap by combining computational power with biological insights, allowing researchers to better analyze and interpret spatial transcriptomics data.
 
+
+The need to detect and characterize specialized tissue structures in kidney, liver, germ and other organ systems where tubules play a crucial role.
+
+The advancements in spatially resolved transcriptomics technologies that provide unprecedented resolution but lack standardized tools for spatial pattern detection.
+
+The growing interest in integrating machine learning and statistical modeling with biological data to reveal new insights into tissue organization and disease mechanisms.
+
 ### Understanding Tubule Structures
 
 Tubules are **elongated, tube-like anatomical structures** found in various biological systems. They play critical roles in **filtration, secretion, absorption, and transport** within tissues. 
@@ -16,13 +23,6 @@ Tubules are **elongated, tube-like anatomical structures** found in various biol
 | **Mammary Ducts**         | Transport of milk from glands to nipple         | **Breast Tissue**        |
 | **Seminiferous Tubules**  | Sperm production and maturation                 | **Testes**               |
 | **Bile Ducts**            | Transport of bile for digestion                 | **Liver & Gallbladder**  |
-
-
-The need to detect and characterize specialized tissue structures in kidney, liver, germ and other organ systems where tubules play a crucial role.
-
-The advancements in spatially resolved transcriptomics technologies that provide unprecedented resolution but lack standardized tools for spatial pattern detection.
-
-The growing interest in integrating machine learning and statistical modeling with biological data to reveal new insights into tissue organization and disease mechanisms.
 
 ## Description
 
