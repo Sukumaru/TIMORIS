@@ -22,7 +22,7 @@
 ### **Module 1: Data Preprocessing**
 - **Scope**: Loads, formats, and normalizes spatial transcriptomics datasets.
 - **Content**:
-  - File parsers for `.h5ad`, `.csv`
+  - File parsers for `.h5ad`
   - Data filtering (low-quality cells removal)
   - Normalization and transformation functions
 - **Dependencies**: Required by Feature Extraction and Detection modules.
@@ -56,5 +56,4 @@
 - **Content**:
   - Benchmarking metrics (precision, recall, spatial clustering scores)
   - Performance evaluation
-  - Report generation in CSV
 - **Dependencies**: Uses outputs from Detection and Visualization
