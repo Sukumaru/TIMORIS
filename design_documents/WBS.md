@@ -8,7 +8,7 @@ The first basic output of TIMORIS will be the identification of tubule-like stru
 ### 1.2 Steps to Compute Output
 #### 1.2.1 Data Preparation
 - **Identify dataset**: Select a small-scale spatial transcriptomics dataset for initial testing.
-- **Format verification**: Ensure the dataset is in `.h5ad` or `.csv` format.
+- **Format verification**: Ensure the dataset is in `.h5ad` format.
 - **Data preprocessing**:
   - Normalize gene expression values.
   - Filter low-quality or low-expression cells.
@@ -36,8 +36,6 @@ The first basic output of TIMORIS will be the identification of tubule-like stru
   - Color-code clusters based on spatial properties.
 - **Export results**:
   - Annotated `.h5ad` file with tubule labels.
-  - CSV table summarizing detected tubules and their properties.
-  - JSON file with structured spatial statistics.
 
 ---
 ## Additional Tasks
