@@ -17,7 +17,7 @@ The tool will be tested on small datasets before scaling up.
 ## 2. Requirements
 
 ### Functional Requirements
-- **Input Data**: Accepts spatial transcriptomics datasets (e.g., **H5AD, CSV, GEOJSON**).
+- **Input Data**: Accepts spatial transcriptomics datasets (**H5AD**).
 - **Processing**:
   - Normalize and filter data.
   - Identify key marker genes.
@@ -35,7 +35,7 @@ The tool will be tested on small datasets before scaling up.
 ## 3. Data Description
 
 ### Input Data
-- **Formats**: `.h5ad`, CSV, GEOJSON.
+- **Formats**: `.h5ad`
 - **Required Fields**:
   - Spatial coordinates.
   - Gene expression profiles.
