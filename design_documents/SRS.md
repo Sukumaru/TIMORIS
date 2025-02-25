@@ -42,7 +42,7 @@ The tool will be tested on small datasets before scaling up.
   - Optional metadata (e.g., tissue type, sample origin).
 
 ### Output Data
-- **Formats**: `.h5ad`, CSV.
+- **Formats**: `.h5ad`
 - **Visual Outputs**: Heatmaps, spatial plots, annotated images.
 
 --
