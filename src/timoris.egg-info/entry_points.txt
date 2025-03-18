@@ -1,0 +1,3 @@
+[console_scripts]
+timoris-detect = timoris.detect_tubules:main
+timoris-visualize = timoris.visualize_results:main

@@ -3,7 +3,14 @@ import networkx as nx
 import scanpy as sc
 from scipy.spatial import Delaunay
 from sklearn.neighbors import kneighbors_graph, radius_neighbors_graph
+import scipy.sparse as sp
 from scipy.sparse import csr_matrix
+import community as community_louvain
+import igraph as ig
+import leidenalg
+from sklearn.cluster import KMeans
+from scipy.linalg import eigh
+
 
 def generate_spatial_graph(adata, method="knn", k=6, radius=50, obsp_key="spatial_graph"):
     """
@@ -56,3 +63,55 @@ def generate_spatial_graph(adata, method="knn", k=6, radius=50, obsp_key="spatia
     adata.obsp[obsp_key] = graph_matrix
 
     return adata
+
+def load_spatial_graph(graph_file):
+    """
+    Load the spatial graph from a file or memory.
+    Ensure it is structured as an undirected weighted graph.
+    """
+    # load file as network
+    adata = sc.read_h5ad(graph_file)
+    spatial_graph = nx.from_numpy_array(adata.obsp['spatial_connectivities'], create_using=nx.Graph())
+    # Check node/edge integrity; ensures node indices = row indices of adata.obsp
+    assert not nx.is_directed(spatial_graph), "Graph is directed! Convert to undirected using nx.Graph()."
+    # ensure edges weighted by spatial connectivity
+    adj_matrix = sp.coo_matrix(adata.obsp['spatial_connectivities'])
+    for i, j, w in zip(adj_matrix.row, adj_matrix.col, adj_matrix.data):
+        spatial_graph[i][j]['weight'] = w
+    # ensure graph is weighted
+    for u, v, data in spatial_graph.edges(data=True):
+        assert 'weight' in data, f"Edge ({u}, {v}) is missing weight!"
+
+    return spatial_graph
+
+def cluster_spatial_graph(graph, method='louvain'):
+
+    """
+    Perform graph-based clustering using the specified method.
+    Supported methods: 'louvain', 'leiden', 'spectral'.
+    """
+
+    if method == "louvain":
+        partition = community_louvain.best_partition(graph)
+    elif method == "leiden":
+        graph = ig.Graph.TupleList(graph.edges(), directed=False)
+        partition = leidenalg.find_partition(graph, leidenalg.ModularityVertexPartition)
+    elif method == "spectral":
+        # compute Laplacian matrix
+        A = nx.adjacency_matrix(graph).toarray()
+        D = np.diag(A.sum(axis=1))
+        L = D - A
+        # get eigenvectors
+        _, eigvecs = eigh(L, subset_by_index=[1, 3]) # filler for now: ask Shu what he would want num_clusters to be
+        # apply k-means clustering
+        kmeans = KMeans(n_clusters=3, random_state=42, n_init=10)
+        labels = kmeans.fit_predict(eigvecs)
+        partition = {node: labels[i] for i, node in enumerate(graph.nodes())}
+    else:
+        raise ValueError("Unsupported clustering method")
+
+    # Assign cluster labels to graph nodes
+    for node, cluster in partition.items():
+        graph.nodes[node]["cluster"] = cluster
+
+    return graph
