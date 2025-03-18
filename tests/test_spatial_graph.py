@@ -6,7 +6,10 @@ import networkx as nx
 import scanpy as sc
 import scipy.sparse as sp
 from tempfile import NamedTemporaryFile
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 
 @pytest.fixture
 def synthetic_adata():
@@ -64,6 +67,9 @@ def test_cluster_spatial_graph(method):
     unique_clusters = set(clusters.values())
     assert len(unique_clusters) >= 2
 
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 if __name__ == "__main__":
     pytest.main()

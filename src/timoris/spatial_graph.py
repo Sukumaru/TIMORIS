@@ -1,6 +1,7 @@
 import numpy as np
 import networkx as nx
 import scanpy as sc
+import scipy.sparse as sp
 from scipy.spatial import Delaunay
 from sklearn.neighbors import kneighbors_graph, radius_neighbors_graph
 import scipy.sparse as sp
@@ -10,7 +11,10 @@ import igraph as ig
 import leidenalg
 from sklearn.cluster import KMeans
 from scipy.linalg import eigh
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 
 def generate_spatial_graph(adata, method="knn", k=6, radius=50, obsp_key="spatial_graph"):
     """
