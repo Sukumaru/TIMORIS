@@ -11,12 +11,8 @@ import igraph as ig
 import leidenalg
 from sklearn.cluster import KMeans
 from scipy.linalg import eigh
-<<<<<<< Updated upstream
 
-=======
->>>>>>> Stashed changes
-
-def generate_spatial_graph(adata, method="knn", k=6, radius=50, obsp_key="spatial_graph"):
+def generate_spatial_graph(adata, method="knn", k=6, radius=50, obsp_key="spatial_connectivities"):
     """
     Generate a spatial graph from an AnnData object and store it in `adata.obsp`.
 
@@ -68,13 +64,12 @@ def generate_spatial_graph(adata, method="knn", k=6, radius=50, obsp_key="spatia
 
     return adata
 
-def load_spatial_graph(graph_file):
+def load_spatial_graph(adata):
     """
     Load the spatial graph from a file or memory.
     Ensure it is structured as an undirected weighted graph.
     """
     # load file as network
-    adata = sc.read_h5ad(graph_file)
     spatial_graph = nx.from_numpy_array(adata.obsp['spatial_connectivities'], create_using=nx.Graph())
     # Check node/edge integrity; ensures node indices = row indices of adata.obsp
     assert not nx.is_directed(spatial_graph), "Graph is directed! Convert to undirected using nx.Graph()."
@@ -88,7 +83,7 @@ def load_spatial_graph(graph_file):
 
     return spatial_graph
 
-def cluster_spatial_graph(graph, method='louvain'):
+def cluster_spatial_graph(graph, method='leiden'):
 
     """
     Perform graph-based clustering using the specified method.
@@ -96,10 +91,20 @@ def cluster_spatial_graph(graph, method='louvain'):
     """
 
     if method == "louvain":
-        partition = community_louvain.best_partition(graph)
+        cluster_map = community_louvain.best_partition(graph)
     elif method == "leiden":
-        graph = ig.Graph.TupleList(graph.edges(), directed=False)
-        partition = leidenalg.find_partition(graph, leidenalg.ModularityVertexPartition)
+        # Convert networkx to igraph
+        node_list = list(graph.nodes)
+        node_index = {node: idx for idx, node in enumerate(node_list)}
+        ig_graph = ig.Graph()
+        ig_graph.add_vertices(len(node_list))
+        ig_graph.add_edges([(node_index[u], node_index[v]) for u, v in graph.edges])
+
+        # Perform Leiden clustering
+        partition = leidenalg.find_partition(ig_graph, leidenalg.ModularityVertexPartition)
+
+        # Map back cluster assignments
+        cluster_map = {node_list[i]: cluster_id for i, cluster_id in enumerate(partition)}
     elif method == "spectral":
         # compute Laplacian matrix
         A = nx.adjacency_matrix(graph).toarray()
@@ -110,12 +115,12 @@ def cluster_spatial_graph(graph, method='louvain'):
         # apply k-means clustering
         kmeans = KMeans(n_clusters=3, random_state=42, n_init=10)
         labels = kmeans.fit_predict(eigvecs)
-        partition = {node: labels[i] for i, node in enumerate(graph.nodes())}
+        cluster_map = {node: labels[i] for i, node in enumerate(graph.nodes())}
     else:
         raise ValueError("Unsupported clustering method")
 
     # Assign cluster labels to graph nodes
-    for node, cluster in partition.items():
+    for node, cluster in cluster_map.items():
         graph.nodes[node]["cluster"] = cluster
 
     return graph
