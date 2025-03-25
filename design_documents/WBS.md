@@ -5,7 +5,7 @@
 ### 1.1 Goal
 The first basic output of TIMORIS will be the identification of tubule-like structures from spatial transcriptomics data. This involves detecting spatial patterns based on gene expression and spatial coordinates.
 
-### 1.2 Steps to Compute Output
+### 1.2 Steps to Compute Output **(done)**
 #### 1.2.1 Data Preparation
 - **Identify dataset**: Select a small-scale spatial transcriptomics dataset for initial testing.
 - **Format verification**: Ensure the dataset is in `.h5ad` format.
@@ -14,15 +14,13 @@ The first basic output of TIMORIS will be the identification of tubule-like stru
   - Filter low-quality or low-expression cells.
   - Extract spatial coordinates of each cell.
 
-#### 1.2.2 Feature Extraction
-- **Identify key marker genes**:
-  - Use known tubule marker genes (if available) or perform gene selection based on clustering.
-- **Compute spatial statistics**:
+#### 1.2.2 Feature Extraction 
+- **Compute spatial statistics**: **(done)**
   - Calculate neighborhood density and nearest-neighbor distances.
   - Apply spatial autocorrelation metrics (e.g., Moran’s I) to detect local structure.
 
 #### 1.2.3 Structure Detection
-- **Apply clustering algorithms**:
+- **Apply clustering algorithms**: **(done)**
   - Use DBSCAN, k-means, or graph-based clustering to detect spatially structured regions.
 - **Shape analysis**:
   - Compute elongation and curvature metrics to determine tubule-like morphology.
