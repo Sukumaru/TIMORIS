@@ -9,11 +9,11 @@
 - Ensure scalability from small test datasets to full-scale datasets.
 
 ### Milestones
-- **Milestone 1**: Identify and preprocess spatial transcriptomics datasets.
-- **Milestone 2**: Develop and optimize tubule detection algorithms.
-- **Milestone 3**: Implement spatial visualization tools.
+- **Milestone 1**: Identify and preprocess spatial transcriptomics datasets. **(done)**
+- **Milestone 2**: Develop and optimize tubule detection algorithms. **(done 75%)**
+- **Milestone 3**: Implement spatial visualization tools. 
 - **Milestone 4**: Validate detection accuracy against expert annotations.
-- **Milestone 5**: Release a documented, scalable pipeline.
+- **Milestone 5**: Release a documented, scalable pipeline. **(done 50%)**
 
 ---
 
