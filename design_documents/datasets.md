@@ -3,7 +3,7 @@ The data will look like:
 
 Repositories where this data is available:
 
-## 1. Human Prostate Cancer Spatial Transcriptomics
+## 1. Human Prostate Cancer Spatial Transcriptomics (Example Data)
 - **Description**: Highlights spatial gene expression in normal and cancerous prostate glandular tubule structures.
 - **Source**: [10x Genomics](https://www.10xgenomics.com/)
 - **Link**: [Prostate Cancer Visium Dataset](https://www.10xgenomics.com/datasets/human-prostate-cancer-adjacent-normal-section-with-if-staining-ffpe-1-standard)
