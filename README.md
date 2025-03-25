@@ -68,4 +68,4 @@ Contains:
 
 ## Tutorial
 
-Tutorial is available at `tutorial/tutorial.pynb`
+Tutorial is available at `tutorial/tutorial.ipynb`
