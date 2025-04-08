@@ -18,7 +18,24 @@ Repositories where this data is available:
 - Spatial resolution: Subcellular  
 - Metadata includes: Cell coordinates, tubule assignments, gene expression matrix
 
+### Justification for this Dataset:
 
+This dataset is an ideal choice to test the **TIMORIS** tool because it contains **spatially resolved transcriptomics data** from **mouse testis** — a tissue where **tubule structures** (e.g., seminiferous tubules) are crucial for development and function. Tubule-like structures are readily identifiable in testis tissue, making it an excellent biological context for testing TIMORIS. The high-resolution single-cell data also allows for fine-grained analysis of tubule morphology and gene expression.
+
+### Biological Question:
+
+Using the **TIMORIS** tool, we aim to answer the following question:
+
+- **How can spatially resolved gene expression patterns reveal the structural and functional organization of seminiferous tubules in mouse testis tissue?**
+
+Specifically, we will:
+- Detect tubule-like regions in the tissue based purely on **spatial coordinates and density**, without relying on specific gene expression markers.
+
+### Expected Results:
+
+- **Tubule regions** will be detected based on their **spatial geometry** (i.e., centroids, boundary cells).
+- **Visualizations** should show tubule-like clusters, with each tubule region identified and labeled.
+- **Expected answer**: The tool will assign **a unique `tubule_id`** to each tubule-like structure, and the **spatial layout** of these regions will align with known anatomical features of the seminiferous tubules.
 
 ## 2. Human Prostate Cancer Spatial Transcriptomics 
 - **Description**: Highlights spatial gene expression in normal and cancerous prostate glandular tubule structures.
