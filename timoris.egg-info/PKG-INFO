@@ -1,0 +1,6 @@
+Metadata-Version: 2.1
+Name: timoris
+Version: 0.1
+Summary: Tubule inference from spatial transcriptomics using ray-based centroid detection and refinement
+Author: Your Name
+License: MIT
