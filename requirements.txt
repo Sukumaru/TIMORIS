@@ -7,3 +7,5 @@ networkx
 scipy
 community
 igraph
+leidenalg
+collections
